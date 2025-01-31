@@ -7,6 +7,7 @@ translate! {
         ko: "홈페이지",
         en: "homepage",
     },
+
 }
 
 translate! {
@@ -43,6 +44,15 @@ translate! {
     remaining_tooltip: {
         ko: "청원 통과까지 남은 투표 인원",
         en: "Number of votes remaining until the petition is passed",
+    },
+
+    btn_support: {
+        ko: "지지하기",
+        en: "Support",
+    },
+    voted: {
+        ko: "이미 지지한 청원입니다.",
+        en: "You have already supported this petition.",
     },
 }
 

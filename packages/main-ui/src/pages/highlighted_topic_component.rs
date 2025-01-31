@@ -88,10 +88,18 @@ pub fn HighlightedTopic(
                 }
             }
 
-            if user_service.role() != UserRole::Guest && !voted {
-                RoundedYesButton {
-                    class: "transition-all w-full flex flex-row justify-center items-center px-[10px] mt-[30px]",
-                    onclick: onsubmit,
+            if user_service.role() != UserRole::Guest {
+                if voted {
+                    div { class: "w-full text-[16px] font-bold flex flex-row items-center justify-center gap-[10px] px-[10px] mt-[30px]",
+                        "{tr.voted}"
+                    }
+                } else {
+                    RoundedYesButton {
+                        class: "transition-all w-full flex flex-row justify-center items-center px-[10px] mt-[30px]",
+                        disabled: voted,
+                        onclick: if !voted { onsubmit },
+                        "{tr.btn_support}"
+                    }
                 }
             }
         }
