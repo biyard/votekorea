@@ -64,6 +64,7 @@ pub fn RoundedYesButton(
     onclick: Option<EventHandler<Event<MouseData>>>,
     #[props(default = 100)] rounded: i32,
     #[props(default = "w-[291px]".to_string())] class: String,
+    children: Element,
 ) -> Element {
     let theme_service: Theme = use_context();
     let theme: crate::theme::ThemeData = theme_service.get_data();
@@ -116,14 +117,16 @@ pub fn RoundedYesButton(
                 },
                 onmouseenter: move |_| {
                     tracing::debug!("hover");
-                    hover.set(true)
+                    if !disabled {
+                        hover.set(true)
+                    }
                 },
                 onmouseleave: move |_| { hover.set(false) },
                 color,
                 background: bg,
                 border_color: border,
                 div { class: "flex items-center justify-center gap-[10px]",
-                    span { class: "text-[15px] font-bold", "찬성" }
+                    span { class: "text-[15px] font-bold", {children} }
                     {icon}
                 }
             }
