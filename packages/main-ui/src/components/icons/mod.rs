@@ -1,4 +1,5 @@
 mod arrows;
+mod blockchain;
 mod chat;
 mod clock;
 mod close;
@@ -19,6 +20,7 @@ mod tooltip;
 mod votes;
 
 pub use arrows::*;
+pub use blockchain::*;
 pub use chat::*;
 pub use clock::*;
 pub use close::*;

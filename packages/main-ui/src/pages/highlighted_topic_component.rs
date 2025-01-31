@@ -73,12 +73,18 @@ pub fn HighlightedTopic(
                             "data-tip": "{tr.amount_tooltip}",
                             icons::Money {}
                             "{tr.amount_title} {amount} {tr.currency}"
+                            icons::Tooltip {}
                         }
                     }
                 }
 
                 div { class: "w-full flex flex-row gap-[10px] items-center justify-start",
-                    VoteResultHorizontalBars { class: "grow", yes, requirement }
+                    VoteResultHorizontalBars {
+                        class: "grow",
+                        yes,
+                        requirement,
+                        lang,
+                    }
                     div {
                         class: "flex flex-row gap-[4px] text-[14px] font-bold px-[14px] py-[8px] rounded-[8px] tooltip cursor-help",
                         "data-tip": "{tr.remaining_tooltip}",
@@ -226,22 +232,28 @@ pub fn ContentWrapper(
 pub fn VoteResultHorizontalBars(
     yes: i64,
     requirement: i64,
+    lang: Language,
     #[props(default = "w-[580px]".to_string())] class: String,
 ) -> Element {
-    let yes = (yes as f32) / (requirement as f32) * 100.0;
-    tracing::debug!("yes =  {} requirement = {}", yes, requirement);
+    let yes_percent = (yes as f32) / (requirement as f32) * 100.0;
+    tracing::debug!("yes =  {} requirement = {}", yes_percent, requirement);
     let theme_service: Theme = use_context();
     let theme = theme_service.get_data();
+    let tr: VoteResultHorizontalBarsTranslate = translate(&lang);
+    let yes = yes.to_formatted_string(&Locale::en);
 
     rsx! {
-        div { class: "flex flex-col justify-start gap-[4px] {class}",
-            div { class: "w-[{yes}%]",
+        div { class: "flex flex-row justify-start items-center gap-[4px] {class}",
+            div { class: "w-[{yes_percent}%] flex flex-row justify-start items-center gap-[5px]",
                 div {
                     class: "relative animate-grow flex flex-row justify-end items-center px-[20px] text-[15px] font-bold w-[calc(50%-6px)] h-[28px] rounded-[6px]",
                     style: "background: linear-gradient(90deg, {theme.primary05} 0%, rgba(104, 211, 108, 0.5) 100%);",
                     div { class: "absolute z-[20] h-[22px] w-[22px] right-[2.46px] top-[3px] rounded-[6px] bg-[{theme.active}] opacity-50" }
-                    span { class: "z-[30]", "{yes}%" }
+                    span { class: "absolute top-[6px] right-[5px] z-[30] text-[12px]",
+                        "{yes}{tr.people_unit}/{yes_percent}%"
+                    }
                 }
+
             }
 
         }

@@ -18,6 +18,7 @@ pub fn Menus(
         div { id, class,
             div { class: "flex flex-row rounded-full bg-[#323342]",
                 ScrollLink { "{tr.home}" }
+                ScrollLink { "{tr.blockchain_vote}" }
                 ScrollLink { "{tr.about}" }
                 ScrollLink { "{tr.contact_us}" }
 

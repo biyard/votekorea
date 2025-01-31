@@ -8,6 +8,100 @@ translate! {
         en: "homepage",
     },
 
+    blockchain_vote_title1: {
+        ko: "블록체인 국민투표란?",
+        en: "What is blockchain voting?",
+    },
+
+    blockchain_vote_title2: {
+        ko: "더욱 신뢰있는 대한민국 여론을 만듭니다.",
+        en: "Create more trustworthy public opinion in Korea.",
+    },
+
+    blockchain_vote_tech_title: {
+        ko: "기술로 조작을 방지합니다.",
+        en: "Prevent manipulation with technology.",
+    },
+
+    blockchain_vote_tech_content: {
+        ko: "블록체인에 1인 1투표 원칙으로 등록된 기록은 변경되지 않습니다.",
+        en: "Records registered with the principle of one person, one vote on the blockchain cannot be changed.",
+    },
+
+    blockchain_vote_org_title: {
+        ko: "전문기관이 조작을 방지합니다.",
+        en: "Professional organizations prevent manipulation.",
+    },
+
+    blockchain_vote_org_content: {
+        ko: "국제기구 및 블록체인 전문기관이 기술과 플랫폼의 무결성을 확인합니다.",
+        en: "International organizations and blockchain experts verify the integrity of technology and platforms.",
+    },
+
+    blockchain_vote_transparency_title: {
+        ko: "다수의 참여로 조작을 방지합니다.",
+        en: "Prevent manipulation with the participation of many people.",
+    },
+
+    blockchain_vote_transparency_content: {
+        ko: "기존 여론조사 참여 규모의 한계를 극복하여 더욱 정확한 데이터를 제공합니다.",
+        en: "Overcome the limitations of the scale of participation in existing opinion polls to provide more accurate data.",
+    },
+}
+
+translate! {
+    AboutTranslate;
+
+    title: {
+        ko: "국민투표가 추구하는 가치",
+        en: "Values pursued by national voting",
+    },
+
+    content1: {
+        ko: "선거과정에 대한 신뢰는 민주주의를 지탱하는 근간입니다. 그러나 최근 데이터 조작과 왜곡에 대한 의혹이 여론조사와 선거의 결과에 대한 신뢰를 무너트려 혼란이 증폭되고 있습니다. ",
+        en: "Trust in the electoral process is the foundation of democracy. However, suspicions of data manipulation and distortion have been undermining trust in the results of opinion polls and elections, leading to increased confusion.",
+    },
+
+    content2: {
+        ko: "이를 해결하기 위해 본 프로젝트는 블록체인 기술을 활용하여 데이터 변조를 원천적으로 차단하고, 투표 과정을 투명하게 공개합니다. 그 위에 국제 검증 기구를 통한 감사로 시스템의 중립성과 신뢰성을 복구, 강화했습니다.",
+        en: "To address this, this project uses blockchain technology to prevent data tampering at the source and transparently discloses the voting process. On top of that, the neutrality and reliability of the system were restored and strengthened through audits by international verification organizations.",
+    },
+
+    trans_title: {
+        ko: "투명성",
+        en: "Transparency",
+    },
+    trans_content: {
+        ko: "데이터는 블록체인에 기록되어 누구나 실시간으로 검증할 수 있습니다.",
+        en: "Data is recorded on the blockchain and can be verified in real time by anyone.",
+    },
+
+    fair_title: {
+        ko: "공정성",
+        en: "Fairness",
+    },
+    fair_content: {
+        ko: "운영자를 포함한 특정 이익집단의 조작이 불가능하도록 설계합니다.",
+        en: "Designed to prevent manipulation by specific interest groups, including operators.",
+    },
+
+    secure_title: {
+        ko: "안전성",
+        en: "Safety",
+    },
+    secure_content: {
+        ko: "블록체인을 통해 데이터를 보호하며 외부 개입을 차단합니다.",
+        en: "Protects data through blockchain and blocks external interference.",
+    },
+
+    public_title: {
+        ko: "공공성",
+        en: "Publicness",
+    },
+    public_content: {
+        ko: "정부나 기관이 필요에 따라 사용할 수 있도록 오픈소스로 운영됩니다.",
+        en: "Operated as open source so that governments and institutions can use it as needed.",
+    },
 }
 
 translate! {
@@ -38,8 +132,8 @@ translate! {
         en: "Promotion investment fund",
     }
     amount_tooltip: {
-        ko: "투자 홍보 후원금은 해당 청원을 많은 사람에게 알리기 위해 사용됩니다.",
-        en: "The promotion investment fund is used to promote the petition to many people.",
+        ko: "본 사업은 공공 목적으로 비영리 운영이 원칙이며, 모인 후원금은 전액 투표의 운영 및 결과의 대국민적 홍보를 위해 사용됩니다.",
+        en: "This project is operated on a non-profit basis for public purposes, and the collected donations will be used for the operation of the entire vote and the national promotion of the results.",
     },
     remaining_tooltip: {
         ko: "청원 통과까지 남은 투표 인원",
@@ -148,6 +242,10 @@ translate! {
         ko: "HOME",
         en: "HOME",
     },
+    blockchain_vote: {
+        ko: "블록체인 국민투표란?",
+        en: "What is blockchain voting?",
+    },
     about: {
         ko: "ABOUT",
         en: "ABOUT",
@@ -219,4 +317,13 @@ translate! {
         en: "Support",
     },
 
+}
+
+translate! {
+    VoteResultHorizontalBarsTranslate;
+
+    people_unit: {
+        ko: "명",
+        en: "people",
+    },
 }
