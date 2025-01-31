@@ -51,7 +51,7 @@ jobs:
 
   main-api:
     runs-on: ubuntu-22.04
-    container: node:20-bookworm-slim
+
     services:
       postgres:
         image: postgres
