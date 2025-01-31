@@ -5,7 +5,7 @@ use dioxus_popup::PopupZone;
 use dioxus_translate::*;
 
 use super::header::Header;
-use crate::route::Route;
+use crate::{pages::footer::Footer, route::Route};
 
 #[component]
 pub fn RootLayout(lang: Language) -> Element {
@@ -25,6 +25,7 @@ pub fn RootLayout(lang: Language) -> Element {
                 Header { lang }
             }
             div { class: "w-full max-w-[1440px]", Outlet::<Route> {} }
+            Footer { lang }
         }
         PopupZone {}
     }

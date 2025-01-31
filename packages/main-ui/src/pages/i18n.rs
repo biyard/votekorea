@@ -327,3 +327,42 @@ translate! {
         en: "people",
     },
 }
+
+translate! {
+    FooterTranslate;
+
+    service_name: {
+        ko: "국민투표",
+        en: "National Voting",
+    },
+
+    service_desc: {
+        ko: "Mine the Future, Cast Your Predictions.",
+        en: "Mine the Future, Cast Your Predictions.",
+    },
+
+    info1: {
+        ko: "비영리임의단체 시민의목소리 (VoxPopuli) | 000-00-000 | 대표 정상규",
+        en: "Non-profit organization Citizen's Voice (VoxPopuli) | 000-00-000 | Representative Sanggyu Jeong",
+    },
+
+    info2: {
+        ko: "(06236) 서울시 강남구 테헤란로 20길 19 | Email info@voxpopuli.net",
+        en: "19, Teheran-ro 20-gil, Gangnam-gu, Seoul 06236 | Email",
+    },
+
+    copyright: {
+        ko: "© 2025  VoxPopuli. All rights reserved.",
+        en: "© 2025  VoxPopuli. All rights reserved.",
+    },
+
+    privacy_policy: {
+        ko: "개인정보처리방침",
+        en: "Privacy Policy",
+    },
+
+    terms_of_service: {
+        ko: "이용약관",
+        en: "Terms of Service",
+    },
+}
