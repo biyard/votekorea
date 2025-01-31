@@ -18,9 +18,10 @@ pub fn HomePage(lang: Language) -> Element {
                     title: "{topic.title}",
                     content: "{topic.content}",
                     period: topic.period(),
-                    yes: 10,
+                    yes: topic.voters,
                     requirement: topic.requirement,
-                    amount: 10000000,
+                    amount: topic.amount,
+                    voted: topic.voted,
                     lang,
                     onsubmit: move |_| ctrl.handle_vote(),
                 }

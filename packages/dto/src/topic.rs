@@ -29,15 +29,14 @@ pub struct Topic {
     #[api_model(summary, action = create, action_by_id = update)]
     pub requirement: i64,
     // The number of voters
-    // #[api_model(summary, skip)]
-    // pub voters: i64,
-
+    #[api_model(summary, one_to_many = votes, foreign_key = topic_id, aggregator = count)]
+    pub voters: i64,
     // // Donation amount
-    // #[api_model(summary, skip)]
-    // pub amount: i64,
+    #[api_model(summary, one_to_many = votes, foreign_key = topic_id, aggregator = sum(amount))]
+    pub amount: i64,
 
-    // #[api_model(summary, skip)]
-    // pub voted: bool,
+    #[api_model(summary, many_to_many = votes, foreign_table_name = users, foreign_primary_key = user_id, foreign_reference_key = topic_id, aggregator = exist, unique)]
+    pub voted: bool,
 }
 
 impl Topic {

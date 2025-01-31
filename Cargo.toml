@@ -17,7 +17,7 @@ slog = "2.7.0"
 easy-dynamodb = { version = "0.1.7" }
 reqwest = { version = "0.12.5", features = ["blocking", "json", "multipart"] }
 dioxus = { version = "0.6.2" }
-sqlx = { version = "0.8.3", features = ["sqlite", "postgres", "runtime-tokio", "time"] }
+sqlx = { version = "0.8.3", features = ["sqlite", "postgres", "runtime-tokio", "time", "bigdecimal"] }
 dioxus-web = { version = "0.6.2", features = [] }
 dioxus-sdk = { version = "0.6.0", features = ["window_size"] }
 

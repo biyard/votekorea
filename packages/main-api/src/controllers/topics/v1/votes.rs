@@ -38,7 +38,7 @@ impl VoteControllerV1 {
         tracing::debug!("act_vote {:?}", body);
 
         let user_id = match auth {
-            Some(Authorization::Bearer { claims }) if claims.role == Role::User => claims.sub,
+            Some(Authorization::Bearer { claims }) if claims.role != Role::Guest => claims.sub,
             _ => return Err(ServiceError::Unauthorized),
         };
 
@@ -56,7 +56,7 @@ impl VoteControllerV1 {
     pub async fn act_vote_by_id(
         State(_ctrl): State<VoteControllerV1>,
         Extension(_auth): Extension<Option<Authorization>>,
-        Path((parent_id, id)): Path<(String, String)>,
+        Path((_topic_id, id)): Path<(String, String)>,
         Json(body): Json<VoteByIdAction>,
     ) -> Result<Json<Vote>> {
         tracing::debug!("act_vote_by_id {:?} {:?}", id, body);
@@ -66,7 +66,7 @@ impl VoteControllerV1 {
     pub async fn get_vote(
         State(_ctrl): State<VoteControllerV1>,
         Extension(_auth): Extension<Option<Authorization>>,
-        Path((parent_id, id)): Path<(String, String)>,
+        Path((_topic_id, id)): Path<(String, String)>,
     ) -> Result<Json<Vote>> {
         tracing::debug!("get_vote {:?}", id);
         Ok(Json(Vote::default()))
@@ -74,7 +74,7 @@ impl VoteControllerV1 {
 
     pub async fn list_vote(
         State(_ctrl): State<VoteControllerV1>,
-        Path(parent_id): Path<String>,
+        Path(_topic_id): Path<String>,
         Extension(_auth): Extension<Option<Authorization>>,
         Query(q): Query<VoteQuery>,
     ) -> Result<Json<VoteGetResponse>> {

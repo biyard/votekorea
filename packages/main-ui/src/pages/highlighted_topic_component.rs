@@ -22,6 +22,7 @@ pub fn HighlightedTopic(
     requirement: i64,
     amount: i64,
     lang: Language,
+    voted: bool,
 
     onsubmit: EventHandler<MouseEvent>,
 ) -> Element {
@@ -87,7 +88,7 @@ pub fn HighlightedTopic(
                 }
             }
 
-            if user_service.role() != UserRole::Guest {
+            if user_service.role() != UserRole::Guest && !voted {
                 RoundedYesButton {
                     class: "transition-all w-full flex flex-row justify-center items-center px-[10px] mt-[30px]",
                     onclick: onsubmit,

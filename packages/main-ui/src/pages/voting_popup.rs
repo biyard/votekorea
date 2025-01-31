@@ -3,6 +3,7 @@ use by_components::theme::ColorTheme;
 use dioxus::prelude::*;
 use dioxus_popup::PopupService;
 use dioxus_translate::{translate, Language};
+use dto::Vote;
 use num_format::{Locale, ToFormattedString};
 
 use crate::{
@@ -81,12 +82,26 @@ pub fn VotingPopup(
             PrimaryButton {
                 class: "w-full",
                 onclick: move |_| {
-                    let donation = match checked() {
-                        true => Some((amount(), name())),
-                        false => None,
+                    let (amount, name) = match checked() {
+                        true => (amount(), name()),
+                        false => (0, "".to_string()),
                     };
-                    tracing::debug!("{:?}", donation);
-                    popup.close();
+                    tracing::debug!("name: {}, amount: {}", name, amount);
+                    let topic_id = topic_id.clone();
+                    async move {
+                        match Vote::get_client(&crate::config::get().main_api_endpoint)
+                            .support(&topic_id, amount, name)
+                            .await
+                        {
+                            Ok(_) => {
+                                popup.close();
+                            }
+                            Err(e) => {
+                                tracing::error!("Error: {:?}", e);
+                            }
+                        }
+                        popup.close();
+                    }
                 },
                 "{tr.support}"
             }
