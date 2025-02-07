@@ -168,13 +168,24 @@ mod tests {
 
         let pool = PgPoolOptions::new()
             .max_connections(5)
-            .connect("postgres://postgres:postgres@localhost:5432/referendum")
+            .connect(
+                option_env!("DATABASE_URL")
+                    .unwrap_or("postgres://postgres:postgres@localhost:5432/test"),
+            )
             .await
             .unwrap();
 
         let repo = Topic::get_repository(pool.clone());
+        let u = User::get_repository(pool.clone());
+        let v = Vote::get_repository(pool.clone());
 
-        repo.create_table().await.unwrap();
+        repo.create_this_table().await;
+        u.create_this_table().await;
+        v.create_this_table().await;
+
+        repo.create_table().await;
+        v.create_table().await;
+        u.create_table().await;
 
         TopicControllerV1 {
             repo,
@@ -227,12 +238,17 @@ mod tests {
         assert_eq!(topic.started_at, started_at);
         assert_eq!(topic.ended_at, ended_at);
         assert_eq!(topic.requirement, 10);
-    }
 
-    #[tokio::test]
-    async fn test_get_topic_for_voting() {
-        let ctrl = setup().await;
-        let res = ctrl.get_topic_for_voting().await;
+        let res = ctrl
+            .get_topic_for_voting(Some(Authorization::Bearer {
+                claims: Claims {
+                    sub: "0".to_string(),
+                    exp: now + 100000,
+                    role: Role::Admin,
+                    custom: Default::default(),
+                },
+            }))
+            .await;
         let now = SystemTime::now()
             .duration_since(SystemTime::UNIX_EPOCH)
             .unwrap()
@@ -249,6 +265,6 @@ mod tests {
 
         assert!(topic.started_at < now, "started_at must be less than now");
         assert!(topic.ended_at > now, "ended_at must be greater than now");
-        assert!(topic.id != "0".to_string(), "id must not be empty");
+        assert!(topic.id != 0, "id must not be empty");
     }
 }

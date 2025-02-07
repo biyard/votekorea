@@ -9,7 +9,7 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  test:
+  test-api:
     runs-on: ubuntu-latest
 
     services:
@@ -51,7 +51,7 @@ jobs:
           DATABASE_TYPE: postgres
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test
         run: |
-          echo "" > packages/main-ui/public/tailwind.css
+          cd packages/main-api
           cargo test --tests
 
   web-deployment:
