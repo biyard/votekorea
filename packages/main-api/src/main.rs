@@ -44,11 +44,11 @@ async fn main() -> Result<(), ServiceError> {
 
     let app = by_axum::new()
         .nest(
-            "/users/v1",
+            "/v1/users",
             controllers::users::v1::UserControllerV1::route(pool.clone()).await?,
         )
         .nest(
-            "/topics/v1",
+            "/v1/topics",
             controllers::topics::v1::TopicControllerV1::route(pool.clone()).await?,
         )
         .layer(middleware::from_fn(authorization_middleware));

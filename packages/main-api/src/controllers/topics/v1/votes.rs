@@ -31,14 +31,16 @@ impl VoteControllerV1 {
 
     pub async fn act_vote(
         State(ctrl): State<VoteControllerV1>,
-        Path(topic_id): Path<String>,
+        Path(topic_id): Path<i64>,
         Extension(auth): Extension<Option<Authorization>>,
         Json(body): Json<VoteAction>,
     ) -> Result<Json<Vote>> {
         tracing::debug!("act_vote {:?}", body);
 
         let user_id = match auth {
-            Some(Authorization::Bearer { claims }) if claims.role != Role::Guest => claims.sub,
+            Some(Authorization::Bearer { claims }) if claims.role != Role::Guest => {
+                claims.sub.parse().unwrap()
+            }
             _ => return Err(ServiceError::Unauthorized),
         };
 
@@ -80,6 +82,8 @@ impl VoteControllerV1 {
     ) -> Result<Json<VoteGetResponse>> {
         tracing::debug!("list_vote {:?}", q);
 
-        Ok(Json(VoteGetResponse::Query(QueryResponse::default())))
+        Ok(Json(VoteGetResponse::Query(
+            by_types::QueryResponse::default(),
+        )))
     }
 }

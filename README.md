@@ -1,4 +1,4 @@
-# 국민투표
+# Vote Korea
 
 ## Common Environments
 | Name     | Description                                                                    |

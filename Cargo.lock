@@ -975,7 +975,7 @@ dependencies = [
 
 [[package]]
 name = "by-components"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "dioxus",
  "tracing",
@@ -994,6 +994,7 @@ dependencies = [
  "proc-macro2",
  "quote",
  "serde",
+ "serde_json",
  "serde_urlencoded",
  "syn 2.0.96",
  "tracing",
@@ -1003,7 +1004,7 @@ dependencies = [
 
 [[package]]
 name = "by-types"
-version = "0.3.5"
+version = "0.3.7"
 dependencies = [
  "aide",
  "axum 0.8.1",
@@ -2163,7 +2164,7 @@ dependencies = [
 
 [[package]]
 name = "dioxus-translate"
-version = "0.1.2"
+version = "0.1.3"
 dependencies = [
  "dioxus-translate-macro",
  "dioxus-translate-types",
@@ -2174,12 +2175,13 @@ dependencies = [
 
 [[package]]
 name = "dioxus-translate-macro"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "dioxus-translate-types",
  "proc-macro2",
  "quote",
  "syn 2.0.96",
+ "tracing",
 ]
 
 [[package]]
@@ -2332,6 +2334,7 @@ dependencies = [
  "bigdecimal",
  "by-axum",
  "by-macros",
+ "by-types",
  "candid",
  "chrono",
  "dioxus-translate",
@@ -5428,7 +5431,7 @@ dependencies = [
 
 [[package]]
 name = "rest-api"
-version = "0.1.6"
+version = "0.1.7"
 dependencies = [
  "base64 0.22.1",
  "candid",

@@ -64,7 +64,7 @@ export class CdkStack extends cdk.Stack {
     let enableRds = process.env.ENABLE_RDS === "true";
     let opensearchCollections = [
       {
-        name: `dagit-${env}`,
+        name: `${project}-${env}`,
         type: "SEARCH",
         description:
           "It saves and searches NFTs, Agits, Collections, DAOs, public proposal and other public data",

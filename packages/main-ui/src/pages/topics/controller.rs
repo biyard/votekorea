@@ -1,5 +1,5 @@
 #![allow(unused)]
-use by_types::QueryParam;
+use by_types::*;
 use dioxus::prelude::*;
 use dioxus_translate::Language;
 use dto::*;

@@ -1,4 +1,6 @@
+#![allow(unused_imports)]
 use crate::*;
+
 use by_macros::api_model;
 // use num_format::{Locale, ToFormattedString};
 
@@ -6,10 +8,10 @@ use by_macros::api_model;
 use by_axum::aide;
 use chrono::Datelike;
 
-#[api_model(base = "/topics/v1", read_action = [get_topic] , table = topics, iter_type=QueryResponse)]
+#[api_model(base = "/v1/topics", read_action = [get_topic] , table = topics)]
 pub struct Topic {
     #[api_model(summary, primary_key)]
-    pub id: String,
+    pub id: i64,
     #[api_model(summary, auto = [insert])]
     pub created_at: i64,
     #[api_model(summary, auto = [insert, update])]

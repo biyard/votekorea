@@ -1,4 +1,3 @@
-use dioxus::CapturedError;
 use dioxus_aws::prelude::*;
 use dioxus_popup::PopupService;
 use dioxus_translate::Language;
@@ -63,7 +62,7 @@ impl Controller {
         self.popup.open(rsx! {
             VotingPopup {
                 lang: self.lang,
-                topic_id: topic.id.as_str(),
+                topic_id: topic.id,
                 topic_title: topic.title.as_str(),
             }
         });

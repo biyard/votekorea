@@ -16,7 +16,7 @@ pub fn VotingPopup(
     #[props(extends = GlobalAttributes)] attributes: Vec<Attribute>,
     children: Element,
     lang: Language,
-    topic_id: String,
+    topic_id: i64,
     topic_title: String,
 ) -> Element {
     let tr: VotingPopupTranslate = translate(&lang);
@@ -87,10 +87,9 @@ pub fn VotingPopup(
                         false => (0, "".to_string()),
                     };
                     tracing::debug!("name: {}, amount: {}", name, amount);
-                    let topic_id = topic_id.clone();
                     async move {
                         match Vote::get_client(&crate::config::get().main_api_endpoint)
-                            .support(&topic_id, amount, name)
+                            .support(topic_id, amount, name)
                             .await
                         {
                             Ok(_) => {
