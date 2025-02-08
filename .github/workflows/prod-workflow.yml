@@ -56,7 +56,6 @@ jobs:
 
   web-deployment:
     runs-on: ubuntu-22.04
-    needs: [test-api]
 
     steps:
       - uses: actions/checkout@v3
@@ -76,6 +75,11 @@ jobs:
           target: wasm32-unknown-unknown
           toolchain: stable
       - uses: cargo-bins/cargo-binstall@main
+      - name: Install dependencies
+        run: |
+          cargo binstall dioxus-cli --force
+          cargo binstall toml-cli --force
+          npm install -g aws-cdk tailwindcss@3
       - name: Cache builder
         id: web-cache-builder
         uses: actions/cache@v3
@@ -84,11 +88,6 @@ jobs:
           path: |
             target
 
-      - name: Install dependencies
-        run: |
-          cargo binstall dioxus-cli
-          cargo binstall toml-cli
-          npm install -g aws-cdk tailwindcss@3
 
       - name: Deploy APIs
         env:
