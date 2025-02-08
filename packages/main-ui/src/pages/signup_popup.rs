@@ -2,6 +2,7 @@
 use super::i18n::SignupPopupTranslate;
 use crate::{
     components::icons,
+    constants::DEFAULT_PROFILE,
     pages::user_setup_popup::UserSetupPopup,
     services::user_service::{UserEvent, UserService},
 };
@@ -38,7 +39,7 @@ pub fn SignupPopup(
                                     UserSetupPopup {
                                         class: "w-[400px]",
                                         nickname: res.nickname.unwrap_or_default(),
-                                        profile_url: res.picture.unwrap_or_default(),
+                                        profile_url: res.picture.unwrap_or(DEFAULT_PROFILE.to_string()),
                                         email: res.email.unwrap_or_default(),
                                         lang: lang.clone(),
                                     }

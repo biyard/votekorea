@@ -952,7 +952,7 @@ dependencies = [
  "aide",
  "axum 0.8.1",
  "by-types",
- "dioxus-aws 0.6.16",
+ "dioxus-aws",
  "http 1.2.0",
  "jsonwebtoken",
  "lambda_http 0.13.0",
@@ -1657,9 +1657,7 @@ dependencies = [
 
 [[package]]
 name = "dioxus-aws"
-version = "0.6.15"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f12e9247901d92db78a4e007b91e979bc45b6b09c30804115012ac6a3b6fa358"
+version = "0.6.16"
 dependencies = [
  "axum 0.7.9",
  "axum-core 0.4.5",
@@ -1673,15 +1671,6 @@ dependencies = [
  "tower 0.4.13",
  "tower-layer",
  "tower-service",
- "tracing",
-]
-
-[[package]]
-name = "dioxus-aws"
-version = "0.6.16"
-dependencies = [
- "dioxus",
- "dioxus-fullstack",
  "tracing",
 ]
 
@@ -4159,7 +4148,7 @@ dependencies = [
  "by-types",
  "chrono",
  "dioxus",
- "dioxus-aws 0.6.15",
+ "dioxus-aws",
  "dioxus-logger 0.5.1",
  "dioxus-oauth",
  "dioxus-popup",

@@ -42,7 +42,7 @@ pub fn UserSetupPopup(
                 // Profile
                 div { class: "w-full flex items-center justify-center",
                     img {
-                        class: "w-[100px] h-[100px] rounded-[50%] object-contain",
+                        class: "w-[100px] h-[100px] rounded-full object-fit",
                         src: "{profile_url}",
                     }
                 }

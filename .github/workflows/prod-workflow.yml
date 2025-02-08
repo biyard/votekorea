@@ -101,7 +101,7 @@ jobs:
           BASE_DOMAIN: votekorea.org
           DOMAIN: votekorea.org
           VERSIONS: v1
-          API_URL: https://votekorea.org
+          MAIN_API_ENDPOINT: https://api.votekorea.org
           V1_ENDPOINT: api.votekorea.org
           ENABLE_S3: true
           CREATE_RDS: false

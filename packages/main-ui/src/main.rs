@@ -1,5 +1,6 @@
 pub mod components;
 pub mod config;
+pub mod constants;
 pub mod pages;
 pub mod route;
 pub mod services;
@@ -18,7 +19,7 @@ fn main() {
     tracing::debug!("config: {:?}", conf);
     rest_api::set_message(conf.domain.to_string());
 
-    dioxus::launch(app);
+    dioxus_aws::launch(app);
 }
 
 fn app() -> Element {
