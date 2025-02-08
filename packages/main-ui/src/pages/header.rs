@@ -58,7 +58,7 @@ pub fn HeaderTails(lang: Language) -> Element {
                 PrimaryButton { color: "{theme.primary00}", onclick: logout, "{i18n_header.logout}" }
                 div { class: "flex flex-row gap-[8px] items-center justify-center",
                     img {
-                        class: "w-[24px] h-[24px] object-contain rounded-full",
+                        class: "w-[24px] h-[24px] object-fit rounded-full",
                         src: "{profile_url}",
                     }
                     p { class: "{theme.font_theme.exbold15} uppercase", "{nickname}" }

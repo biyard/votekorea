@@ -16,13 +16,13 @@ pub fn Menus(
 
     rsx! {
         div { id, class,
-            div { class: "flex flex-row rounded-full bg-[#323342]",
-                ScrollLink { "{tr.home}" }
-                ScrollLink { "{tr.blockchain_vote}" }
-                ScrollLink { "{tr.about}" }
-                ScrollLink { "{tr.contact_us}" }
+            if user.role() == UserRole::Admin {
+                div { class: "flex flex-row rounded-full bg-[#323342]",
+                    ScrollLink { "{tr.home}" }
+                    ScrollLink { "{tr.blockchain_vote}" }
+                    ScrollLink { "{tr.about}" }
+                    ScrollLink { "{tr.contact_us}" }
 
-                if user.role() == UserRole::Admin {
                     MenuItem { to: Route::TopicsPage { lang }, "{tr.topic}" }
                 }
             }
