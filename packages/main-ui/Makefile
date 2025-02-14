@@ -9,7 +9,7 @@ endif
 
 DOMAIN ?= localhost
 RUST_LOG ?= debug
-KAKAO_REDIRECT_URI ?= http://localhost:8080
+KAKAO_REDIRECT_URI ?= http://localhost:8080/oauth/kakao
 WORKSPACE_ROOT ?= ../..
 MAIN_API_ENDPOINT ?= http://localhost:3000
 

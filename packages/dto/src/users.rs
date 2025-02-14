@@ -33,9 +33,8 @@ pub struct User {
     pub kakao_id: String,
 }
 
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize, Default, Eq, PartialEq, ApiModel)]
+#[derive(Debug, Clone, Default, Eq, PartialEq, ApiModel)]
 #[cfg_attr(feature = "server", derive(schemars::JsonSchema, aide::OperationIo))]
-#[serde(rename_all = "snake_case")]
 pub enum UserRole {
     Admin = 0,
     #[default]

@@ -673,7 +673,7 @@ dependencies = [
  "http 1.2.0",
  "http-body 1.0.1",
  "http-body-util",
- "hyper 1.5.2",
+ "hyper 1.6.0",
  "hyper-util",
  "itoa 1.0.14",
  "matchit 0.7.3",
@@ -710,7 +710,7 @@ dependencies = [
  "http 1.2.0",
  "http-body 1.0.1",
  "http-body-util",
- "hyper 1.5.2",
+ "hyper 1.6.0",
  "hyper-util",
  "itoa 1.0.14",
  "matchit 0.8.4",
@@ -954,9 +954,11 @@ dependencies = [
  "by-types",
  "dioxus-aws",
  "http 1.2.0",
+ "hyper 1.6.0",
  "jsonwebtoken",
  "lambda_http 0.13.0",
  "lambda_runtime 0.13.0",
+ "reqwest",
  "rest-api",
  "schemars",
  "serde",
@@ -978,6 +980,11 @@ name = "by-components"
 version = "0.1.1"
 dependencies = [
  "dioxus",
+ "js-sys",
+ "num-format",
+ "serde",
+ "serde-wasm-bindgen 0.6.5",
+ "serde_json",
  "tracing",
  "wasm-bindgen",
  "wasm-bindgen-futures",
@@ -1011,6 +1018,7 @@ dependencies = [
  "reqwest",
  "schemars",
  "serde",
+ "serde_json",
  "sqlx",
  "tracing",
  "validator",
@@ -1630,9 +1638,9 @@ dependencies = [
 
 [[package]]
 name = "dioxus"
-version = "0.6.2"
+version = "0.6.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0e7d69c4bd197db4739654af0a37c426417b45d5f495df8d10fafeb5da846dca"
+checksum = "60a247114500f1a78e87022defa8173de847accfada8e8809dfae23a118a580c"
 dependencies = [
  "dioxus-cli-config",
  "dioxus-config-macro",
@@ -1676,9 +1684,9 @@ dependencies = [
 
 [[package]]
 name = "dioxus-cli-config"
-version = "0.6.2"
+version = "0.6.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d20764ae5fbe886e4602fdd6f2420ed03697eccba51605926f54693bd65879f3"
+checksum = "cdd16948f1ffdb068dd9a64812158073a4250e2af4e98ea31fdac0312e6bce86"
 dependencies = [
  "wasm-bindgen",
 ]
@@ -1832,9 +1840,9 @@ dependencies = [
 
 [[package]]
 name = "dioxus-fullstack"
-version = "0.6.2"
+version = "0.6.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aa2da12d6b6ce390bd3143f46c8441fa1a50f1428113a059b25d8fd22a3899d2"
+checksum = "fe99b48a1348eec385b5c4bd3e80fd863b0d3b47257d34e2ddc58754dec5d128"
 dependencies = [
  "async-trait",
  "axum 0.7.9",
@@ -1854,7 +1862,7 @@ dependencies = [
  "futures-util",
  "generational-box",
  "http 1.2.0",
- "hyper 1.5.2",
+ "hyper 1.6.0",
  "once_cell",
  "parking_lot",
  "pin-project",
@@ -2201,7 +2209,7 @@ dependencies = [
  "lazy-js-bundle",
  "rustc-hash",
  "serde",
- "serde-wasm-bindgen",
+ "serde-wasm-bindgen 0.5.0",
  "serde_json",
  "tracing",
  "wasm-bindgen",
@@ -3386,9 +3394,9 @@ dependencies = [
 
 [[package]]
 name = "hyper"
-version = "1.5.2"
+version = "1.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "256fb8d4bd6413123cc9d91832d78325c48ff41677595be797d90f42969beae0"
+checksum = "cc2b571658e38e0c01b1fdca3bbbe93c00d3d71693ff2770043f8c29bc7d6f80"
 dependencies = [
  "bytes",
  "futures-channel",
@@ -3429,7 +3437,7 @@ checksum = "2d191583f3da1305256f22463b9bb0471acad48a4e534a5218b9963e9c1f59b2"
 dependencies = [
  "futures-util",
  "http 1.2.0",
- "hyper 1.5.2",
+ "hyper 1.6.0",
  "hyper-util",
  "rustls 0.23.21",
  "rustls-pki-types",
@@ -3446,7 +3454,7 @@ checksum = "70206fc6890eaca9fde8a0bf71caa2ddfc9fe045ac9e5c70df101a7dbde866e0"
 dependencies = [
  "bytes",
  "http-body-util",
- "hyper 1.5.2",
+ "hyper 1.6.0",
  "hyper-util",
  "native-tls",
  "tokio",
@@ -3465,7 +3473,7 @@ dependencies = [
  "futures-util",
  "http 1.2.0",
  "http-body 1.0.1",
- "hyper 1.5.2",
+ "hyper 1.6.0",
  "pin-project-lite",
  "socket2",
  "tokio",
@@ -3840,7 +3848,7 @@ dependencies = [
  "http 1.2.0",
  "http-body 1.0.1",
  "http-body-util",
- "hyper 1.5.2",
+ "hyper 1.6.0",
  "lambda_runtime 0.12.0",
  "mime",
  "percent-encoding",
@@ -3867,7 +3875,7 @@ dependencies = [
  "http 1.2.0",
  "http-body 1.0.1",
  "http-body-util",
- "hyper 1.5.2",
+ "hyper 1.6.0",
  "lambda_runtime 0.13.0",
  "mime",
  "percent-encoding",
@@ -3893,7 +3901,7 @@ dependencies = [
  "http-body 1.0.1",
  "http-body-util",
  "http-serde",
- "hyper 1.5.2",
+ "hyper 1.6.0",
  "hyper-util",
  "lambda_runtime_api_client",
  "pin-project",
@@ -3921,7 +3929,7 @@ dependencies = [
  "http-body 1.0.1",
  "http-body-util",
  "http-serde",
- "hyper 1.5.2",
+ "hyper 1.6.0",
  "hyper-util",
  "lambda_runtime_api_client",
  "pin-project",
@@ -3947,7 +3955,7 @@ dependencies = [
  "http 1.2.0",
  "http-body 1.0.1",
  "http-body-util",
- "hyper 1.5.2",
+ "hyper 1.6.0",
  "hyper-util",
  "tokio",
  "tower 0.4.13",
@@ -4114,7 +4122,7 @@ checksum = "c41e0c4fef86961ac6d6f8a82609f55f31b05e4fce149ac5710e439df7619ba4"
 
 [[package]]
 name = "main-api"
-version = "0.7.4"
+version = "0.7.5"
 dependencies = [
  "by-axum",
  "by-types",
@@ -4140,7 +4148,7 @@ dependencies = [
 
 [[package]]
 name = "main-ui"
-version = "0.7.5"
+version = "0.7.6"
 dependencies = [
  "base64 0.22.1",
  "by-components",
@@ -5386,7 +5394,7 @@ dependencies = [
  "http 1.2.0",
  "http-body 1.0.1",
  "http-body-util",
- "hyper 1.5.2",
+ "hyper 1.6.0",
  "hyper-rustls 0.27.5",
  "hyper-tls",
  "hyper-util",
@@ -5420,7 +5428,7 @@ dependencies = [
 
 [[package]]
 name = "rest-api"
-version = "0.1.7"
+version = "0.1.8"
 dependencies = [
  "base64 0.22.1",
  "candid",
@@ -5757,6 +5765,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "serde-wasm-bindgen"
+version = "0.6.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8302e169f0eddcc139c70f139d19d6467353af16f9fce27e8c30158036a1e16b"
+dependencies = [
+ "js-sys",
+ "serde",
+ "wasm-bindgen",
+]
+
+[[package]]
 name = "serde_bytes"
 version = "0.11.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5890,7 +5909,7 @@ dependencies = [
  "gloo-net",
  "http 1.2.0",
  "http-body-util",
- "hyper 1.5.2",
+ "hyper 1.6.0",
  "inventory",
  "js-sys",
  "once_cell",
@@ -7388,6 +7407,8 @@ dependencies = [
  "cfg-if",
  "once_cell",
  "rustversion",
+ "serde",
+ "serde_json",
  "wasm-bindgen-macro",
 ]
 
