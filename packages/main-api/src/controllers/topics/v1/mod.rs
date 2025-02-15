@@ -253,7 +253,7 @@ mod tests {
             .unwrap()
             .as_secs() as i64;
 
-        assert!(res.is_ok());
+        assert!(res.is_ok(), "{:?}", res);
 
         let res = res.unwrap();
 
