@@ -236,11 +236,12 @@ pub fn VoteResultHorizontalBars(
     #[props(default = "w-[580px]".to_string())] class: String,
 ) -> Element {
     let yes_percent = (yes as f32) / (requirement as f32) * 100.0;
+    let percent_str = format!("{:.1}", yes_percent);
     tracing::debug!("yes =  {} requirement = {}", yes_percent, requirement);
     let theme_service: Theme = use_context();
     let theme = theme_service.get_data();
     let tr: VoteResultHorizontalBarsTranslate = translate(&lang);
-    let yes = format!("{:.2}", yes.to_formatted_string(&Locale::en));
+    let yes = yes.to_formatted_string(&Locale::en);
 
     rsx! {
         div { class: "flex flex-row justify-start items-center gap-[4px] {class}",
@@ -250,7 +251,7 @@ pub fn VoteResultHorizontalBars(
                     style: "background: linear-gradient(90deg, {theme.primary05} 0%, rgba(104, 211, 108, 0.5) 100%);",
                     div { class: "absolute z-[20] h-[22px] w-[22px] right-[2.46px] top-[3px] rounded-[6px] bg-[{theme.active}] opacity-50" }
                     span { class: "absolute top-[6px] right-[5px] z-[30] text-[12px]",
-                        "{yes}{tr.people_unit}/{yes_percent}%"
+                        "{yes}{tr.people_unit}/{percent_str}%"
                     }
                 }
 
