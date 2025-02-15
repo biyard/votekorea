@@ -133,8 +133,8 @@ impl TopicControllerV1 {
         };
 
         let topic: Topic = Topic::query_builder(user_id)
-            .started_at_greater_than_equals(now)
-            .ended_at_less_than_equals(now)
+            .started_at_less_than_equals(now)
+            .ended_at_greater_than_equals(now)
             .order_by_created_at_desc()
             .query()
             .map(|row: sqlx::postgres::PgRow| {
