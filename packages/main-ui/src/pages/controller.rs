@@ -59,11 +59,16 @@ impl Controller {
             }
         };
 
+        let mut rsc = self.topic;
+
         self.popup.open(rsx! {
             VotingPopup {
                 lang: self.lang,
                 topic_id: topic.id,
                 topic_title: topic.title.as_str(),
+                onsubmit: move |_| {
+                    rsc.restart();
+                },
             }
         });
     }

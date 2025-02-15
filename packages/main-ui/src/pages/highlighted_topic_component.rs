@@ -65,7 +65,7 @@ pub fn HighlightedTopic(
                             "data-tip": "{tr.requirement_tooltip}",
                             background: "{color.button.secondary}",
                             icons::RequirementIcon { width: "19", height: "20" }
-                            "{requirement} {tr.unit}"
+                            "{requirement.to_formatted_string(&Locale::en)} {tr.unit}"
                         }
 
                         div {
@@ -89,7 +89,7 @@ pub fn HighlightedTopic(
                         class: "flex flex-row gap-[4px] text-[14px] font-bold px-[14px] py-[8px] rounded-[8px] tooltip cursor-help",
                         "data-tip": "{tr.remaining_tooltip}",
                         icons::OutlinedHandshakeIcon { size: 20.0 }
-                        "{remaining_people} {tr.unit}"
+                        "{remaining_people.to_formatted_string(&Locale::en)} {tr.unit}"
                     }
                 }
             }
@@ -240,7 +240,7 @@ pub fn VoteResultHorizontalBars(
     let theme_service: Theme = use_context();
     let theme = theme_service.get_data();
     let tr: VoteResultHorizontalBarsTranslate = translate(&lang);
-    let yes = yes.to_formatted_string(&Locale::en);
+    let yes = format!("{:.2}", yes.to_formatted_string(&Locale::en));
 
     rsx! {
         div { class: "flex flex-row justify-start items-center gap-[4px] {class}",

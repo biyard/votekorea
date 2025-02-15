@@ -18,6 +18,7 @@ pub fn VotingPopup(
     lang: Language,
     topic_id: i64,
     topic_title: String,
+    onsubmit: EventHandler<()>,
 ) -> Element {
     let tr: VotingPopupTranslate = translate(&lang);
     let mut popup: PopupService = use_context();
@@ -94,6 +95,7 @@ pub fn VotingPopup(
                         {
                             Ok(_) => {
                                 popup.close();
+                                onsubmit(());
                             }
                             Err(e) => {
                                 tracing::error!("Error: {:?}", e);
