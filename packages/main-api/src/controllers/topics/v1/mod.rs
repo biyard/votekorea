@@ -132,18 +132,17 @@ impl TopicControllerV1 {
             _ => 0,
         };
 
-        let sql = Topic::base_sql(user_id);
-        tracing::debug!("get_topic_for_voting base sql {:?}", sql);
-        let topic: Topic = sqlx::query(&format!(
-            "{sql} WHERE started_at < $1 and ended_at > $1 ORDER BY created_at DESC"
-        ))
-        .bind(now)
-        .map(|row: sqlx::postgres::PgRow| {
-            tracing::debug!("get_topic_for_voting row {:?}", row);
-            row.into()
-        })
-        .fetch_one(&self.pool)
-        .await?;
+        let topic: Topic = Topic::query_builder(user_id)
+            .started_at_greater_than_equals(now)
+            .ended_at_less_than_equals(now)
+            .order_by_created_at_desc()
+            .query()
+            .map(|row: sqlx::postgres::PgRow| {
+                tracing::debug!("get_topic_for_voting row {:?}", row);
+                row.into()
+            })
+            .fetch_one(&self.pool)
+            .await?;
 
         tracing::debug!("get_topic_for_voting {:?}", topic);
 
