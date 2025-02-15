@@ -45,12 +45,12 @@ async fn main() -> Result<(), ServiceError> {
     let t = Topic::get_repository(pool.clone());
     let v = Vote::get_repository(pool.clone());
     let u = User::get_repository(pool.clone());
-    t.create_this_table().await;
-    v.create_this_table().await;
-    u.create_this_table().await;
-    t.create_table().await;
-    v.create_table().await;
-    u.create_table().await;
+    t.create_this_table().await?;
+    v.create_this_table().await?;
+    u.create_this_table().await?;
+    t.create_table().await?;
+    v.create_table().await?;
+    u.create_table().await?;
 
     let app = by_axum::new()
         .nest(
