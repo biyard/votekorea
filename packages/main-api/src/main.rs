@@ -3,7 +3,7 @@ use by_axum::{
     axum::middleware,
 };
 use by_types::DatabaseConfig;
-use dto::error::ServiceError;
+use dto::{error::ServiceError, Topic, User, Vote};
 use sqlx::postgres::PgPoolOptions;
 use tokio::net::TcpListener;
 
@@ -42,14 +42,24 @@ async fn main() -> Result<(), ServiceError> {
         panic!("Database is not initialized. Call init() first.");
     };
 
+    let t = Topic::get_repository(pool.clone());
+    let v = Vote::get_repository(pool.clone());
+    let u = User::get_repository(pool.clone());
+    t.create_this_table().await;
+    v.create_this_table().await;
+    u.create_this_table().await;
+    t.create_table().await;
+    v.create_table().await;
+    u.create_table().await;
+
     let app = by_axum::new()
         .nest(
             "/v1/users",
-            controllers::users::v1::UserControllerV1::route(pool.clone()).await?,
+            controllers::users::v1::UserControllerV1::route(pool.clone())?,
         )
         .nest(
             "/v1/topics",
-            controllers::topics::v1::TopicControllerV1::route(pool.clone()).await?,
+            controllers::topics::v1::TopicControllerV1::route(pool.clone())?,
         )
         .layer(middleware::from_fn(authorization_middleware));
 

@@ -22,10 +22,8 @@ pub struct TopicControllerV1 {
 }
 
 impl TopicControllerV1 {
-    pub async fn route(pool: sqlx::Pool<sqlx::Postgres>) -> Result<by_axum::axum::Router> {
+    pub fn route(pool: sqlx::Pool<sqlx::Postgres>) -> Result<by_axum::axum::Router> {
         let repo = Topic::get_repository(pool.clone());
-
-        repo.create_table().await?;
 
         let ctrl = TopicControllerV1 {
             repo,
@@ -37,7 +35,7 @@ impl TopicControllerV1 {
             .with_state(ctrl.clone())
             .route("/", post(Self::act_topic).get(Self::list_topic))
             .with_state(ctrl.clone())
-            .nest("/:id/votes", VoteControllerV1::route(pool.clone()).await?))
+            .nest("/:id/votes", VoteControllerV1::route(pool.clone())?))
     }
 
     pub async fn act_topic(

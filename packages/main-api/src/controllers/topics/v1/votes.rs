@@ -15,10 +15,8 @@ pub struct VoteControllerV1 {
 }
 
 impl VoteControllerV1 {
-    pub async fn route(pool: sqlx::Pool<sqlx::Postgres>) -> Result<by_axum::axum::Router> {
+    pub fn route(pool: sqlx::Pool<sqlx::Postgres>) -> Result<by_axum::axum::Router> {
         let repo = Vote::get_repository(pool);
-
-        repo.create_table().await?;
 
         let ctrl = VoteControllerV1 { repo };
 
