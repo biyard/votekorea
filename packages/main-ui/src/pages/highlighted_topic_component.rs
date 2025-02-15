@@ -250,7 +250,7 @@ pub fn VoteResultHorizontalBars(
                     class: "relative animate-grow flex flex-row justify-end items-center px-[20px] text-[15px] font-bold w-[calc(50%-6px)] h-[28px] rounded-[6px]",
                     style: "background: linear-gradient(90deg, {theme.primary05} 0%, rgba(104, 211, 108, 0.5) 100%);",
                     div { class: "absolute z-[20] h-[22px] w-[22px] right-[2.46px] top-[3px] rounded-[6px] bg-[{theme.active}] opacity-50" }
-                    span { class: "absolute top-[6px] right-[5px] z-[30] text-[12px]",
+                    span { class: "absolute min-w-[80px] top-[6px] right-[5px] z-[30] text-[12px]",
                         "{yes}{tr.people_unit}/{percent_str}%"
                     }
                 }
