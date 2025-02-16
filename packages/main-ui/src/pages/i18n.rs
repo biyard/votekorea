@@ -342,8 +342,8 @@ translate! {
     },
 
     info1: {
-        ko: "비영리임의단체 시민의목소리 (VoxPopuli) | 000-00-000 | 대표 정상규",
-        en: "Non-profit organization Citizen's Voice (VoxPopuli) | 000-00-000 | Representative Sanggyu Jeong",
+        ko: "비영리임의단체 시민의목소리 (VoxPopuli) | 143-82-77608 | 대표 정상규",
+        en: "Non-profit organization Citizen's Voice (VoxPopuli) | 143-82-77608 | Representative Sanggyu Jeong",
     },
 
     info2: {
