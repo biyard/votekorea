@@ -36,12 +36,12 @@ pub fn HomePage(lang: Language) -> Element {
             div {
                 id: "blockchain-vote-section",
                 class: "flex flex-col gap-[10px] items-center justify-center",
-                div { class: "flex flex-col gap-[8px] text-[48px] font-bold justify-center items-center",
+                div { class: "flex flex-col gap-[8px] text-[48px] max-[800px]:text-[32px] text-center font-bold justify-center items-center",
                     span { "{tr.blockchain_vote_title1}" }
                     span { "{tr.blockchain_vote_title2}" }
                 }
 
-                div { class: "grid grid-cols-3 gap-[20px] p-[20px] justify-center items-center",
+                div { class: "grid grid-cols-3 max-[800px]:grid-cols-1 gap-[20px] p-[20px] justify-center items-center",
                     for (title , content) in [
                         (tr.blockchain_vote_tech_title, tr.blockchain_vote_tech_content),
                         (tr.blockchain_vote_org_title, tr.blockchain_vote_org_content),
@@ -51,7 +51,9 @@ pub fn HomePage(lang: Language) -> Element {
                         div {
                             class: "hover-effect col-span-1 flex flex-col px-[40px] py-[50px] gap-[20px] justify-start items-start rounded-[15px]",
                             background: "{color.card.primary}",
-                            span { class: "hover-effect text-[24px] font-bold", "{title}" }
+                            span { class: "hover-effect text-[24px] max-[800px]:text-[20px] font-bold",
+                                "{title}"
+                            }
                             span {
                                 class: "hover-effect text-[16px] font-normal",
                                 color: "{color.text.secondary}",
@@ -66,16 +68,16 @@ pub fn HomePage(lang: Language) -> Element {
                 id: "about-section",
                 class: "flex flex-col gap-[50px] items-center justify-center",
                 div { class: "flex flex-col gap-[50px] items-center justify-center",
-                    div { class: "flex flex-col gap-[8px] text-[48px] font-bold justify-center items-center",
+                    div { class: "flex flex-col gap-[8px] text-[48px] max-[800px]:text-[32px] font-bold justify-center items-center",
                         span { "{about.title}" }
                     }
-                    div { class: "w-full flex flex-col gap-[10px] items-center justify-center text-[24px] font-light max-w-[1100px] text-center",
+                    div { class: "w-full flex flex-col gap-[10px] items-center justify-center text-[24px] max-[800px]:text-[18px] font-light max-w-[1100px] text-center",
                         span { "{about.content1}" }
                         span { "{about.content2}" }
                     }
                 }
 
-                div { class: "w-full grid grid-cols-2 grid-rows-2 p-[20px] gap-[20px]",
+                div { class: "w-full grid grid-cols-2 max-[800px]:grid-cols-1 max-[800px]:grid-rows-1 grid-rows-2 p-[20px] gap-[20px]",
 
                     for (icon , title , content) in [
                         (rsx! {
@@ -93,9 +95,9 @@ pub fn HomePage(lang: Language) -> Element {
                     ]
                     {
                         div {
-                            class: "hover-effect col-span-1 flex flex-row px-[20px] py-[30px] justify-start items-start rounded-[15px]",
+                            class: "hover-effect col-span-1 flex flex-row px-[20px] py-[30px] justify-start items-start rounded-[15px] max-[500px]:py-[10px] max-[500px]:px-[10px]",
                             background: "{color.card.primary}",
-                            div { class: "hover-effect p-[10px] gap-[10px] flex justify-center items-center w-[230px] h-[180px]",
+                            div { class: "hover-effect p-[10px] gap-[10px] flex justify-center items-center w-[230px] h-[180px] max-[500px]:w-0 max-[500px]:h-0",
                                 {icon}
                             }
                             div { class: "hover-effect flex flex-col gap-[20px] p-[20px] justify-center items-start",

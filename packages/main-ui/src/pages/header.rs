@@ -19,7 +19,10 @@ pub fn Header(lang: Language) -> Element {
     rsx! {
         div { class: "flex flex-row items-center justify-between w-full pt-[47px] pb-[39px]",
             LogoWrapper {}
-            Menus { class: "grow flex flex-row justify-end px-[30px]", lang }
+            Menus {
+                class: "grow flex flex-row justify-end px-[30px] max-[700px]:hidden",
+                lang,
+            }
             HeaderTails { lang }
         }
     }
@@ -41,7 +44,7 @@ pub fn HeaderTails(lang: Language) -> Element {
         tracing::debug!("signup button clicked");
         popup
             .open(rsx! {
-                SignupPopup { class: "w-[400px]", lang: lang.clone() }
+                SignupPopup { class: "w-full", lang: lang.clone() }
             })
             .with_id("signup")
             .with_title(i18n_header.signup);
@@ -56,7 +59,7 @@ pub fn HeaderTails(lang: Language) -> Element {
         div { class: "flex flex-row gap-[30px] justify-start items-center",
             if let Some((nickname, profile_url)) = user_service.get_user_info() {
                 PrimaryButton { color: "{theme.primary00}", onclick: logout, "{i18n_header.logout}" }
-                div { class: "flex flex-row gap-[8px] items-center justify-center",
+                div { class: "flex flex-row gap-[8px] items-center justify-center max-[700px]:hidden",
                     img {
                         class: "w-[24px] h-[24px] object-fit rounded-full",
                         src: "{profile_url}",

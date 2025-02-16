@@ -37,7 +37,7 @@ pub fn SignupPopup(
                             UserEvent::Signup => {
                                 popup.open(rsx! {
                                     UserSetupPopup {
-                                        class: "w-[400px]",
+                                        class: "w-full",
                                         nickname: res.nickname.unwrap_or_default(),
                                         profile_url: res.picture.unwrap_or(DEFAULT_PROFILE.to_string()),
                                         email: res.email.unwrap_or_default(),

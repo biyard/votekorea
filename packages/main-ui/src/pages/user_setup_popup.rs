@@ -48,14 +48,14 @@ pub fn UserSetupPopup(
                 }
 
                 // Nickname
-                div { class: "flex flex-col gap-[8px]",
+                div { class: "flex flex-col gap-[8px] w-full",
                     div { class: "flex flex-row items-start",
                         span { class: "text-[14px] font-bold leading-[24px]", "닉네임" }
                         span { class: "text-[14px] text-[#ff0000]", "*" }
                     }
                     div { class: "flex flex-col items-start w-full mt-[10px] gap-[8px]",
                         input {
-                            class: "w-[400px] max-[400px]:w-[300px] h-[59px] px-[24px] py-[17.5px] bg-[{theme.background}] text-[18px] font-bold leading-[24px] rounded-[4px] placeholder-[{theme.primary07}] rounded-[8px]",
+                            class: "w-full h-[59px] px-[24px] py-[17.5px] bg-[{theme.background}] text-[18px] font-bold leading-[24px] rounded-[4px] placeholder-[{theme.primary07}] rounded-[8px]",
                             placeholder: "{tr.enter_nickname}",
                             value: nickname(),
                             oninput: move |e| {
@@ -73,13 +73,13 @@ pub fn UserSetupPopup(
                 }
 
                 // Email
-                div { class: "flex flex-col gap-[8px]",
+                div { class: "flex flex-col gap-[8px] w-full",
                     div { class: "flex flex-row items-start",
                         span { class: "text-[14px] font-bold leading-[24px]", "이메일" }
                     }
                     div { class: "flex flex-col items-start w-full mt-[10px] gap-[8px]",
                         input {
-                            class: "w-[400px] max-[400px]:w-[300px] h-[59px] px-[24px] py-[17.5px] bg-[{theme.background}] text-[18px] font-bold leading-[24px] rounded-[4px] placeholder-[{theme.primary07}] rounded-[8px] text-[{theme.primary04}]",
+                            class: "w-full h-[59px] px-[24px] py-[17.5px] bg-[{theme.background}] text-[18px] font-bold leading-[24px] rounded-[4px] placeholder-[{theme.primary07}] rounded-[8px] text-[{theme.primary04}]",
                             value: email(),
                             onchange: move |e| {
                                 email.set(e.value());

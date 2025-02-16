@@ -35,25 +35,25 @@ pub fn HighlightedTopic(
     rsx! {
         div {
             id,
-            class: "w-full flex flex-col gap-[10px] bg-[{color.card.primary}] rounded-[8px]  py-[50px]",
+            class: "w-full flex flex-col gap-[10px] bg-[{color.card.primary}] rounded-[8px]  py-[50px] max-[500px]:py-[20px]",
             div {
-                class: "transition-all flex flex-col justify-start items-start py-[20px] gap-[30px] px-[80px]",
+                class: "transition-all flex flex-col justify-start items-start py-[20px] gap-[30px] px-[80px] max-[500px]:px-[40px]",
                 border_bottom: if user_service.role() != UserRole::Guest { format!("1px solid {}", color.button.secondary) } else { "".to_string() },
                 div { class: "flex flex-col gap-[20px] items-start justify-start",
                     h1 {
-                        class: "text-[42px] font-extrabold tracking-normal line-clamp-1",
+                        class: "text-[42px] max-[500px]:text-[28px] font-extrabold tracking-normal line-clamp-1",
                         color: "{color.text.primary}",
                         "{title}"
                     }
                     p {
-                        class: "text-[16px] max-w-[674px] font-regular leading-[24px] tracking-[0.5px] line-clamp-4",
+                        class: "text-[16px] max-[500px]:text-[14px] max-w-[674px] font-regular leading-[24px] tracking-[0.5px] line-clamp-4",
                         color: "{color.text.secondary}",
                         "{content}"
                     }
 
-                    div { class: "flex flex-row gap-[8px]",
+                    div { class: "flex flex-row gap-[8px] max-[500px]:flex-col text-[14px] font-bold",
                         div {
-                            class: "flex flex-row gap-[4px] text-[14px] font-bold px-[14px] py-[8px] rounded-[8px] tooltip cursor-help",
+                            class: "flex flex-row gap-[4px] px-[14px] py-[8px] rounded-[8px] tooltip cursor-help",
                             "data-tip": "{tr.period_tooltip}",
                             background: "{color.button.secondary}",
                             icons::Clock {}
@@ -61,7 +61,7 @@ pub fn HighlightedTopic(
                         }
 
                         div {
-                            class: "flex flex-row gap-[4px] text-[14px] font-bold px-[14px] py-[8px] rounded-[8px] tooltip cursor-help",
+                            class: "flex flex-row gap-[4px] px-[14px] py-[8px] rounded-[8px] tooltip cursor-help",
                             "data-tip": "{tr.requirement_tooltip}",
                             background: "{color.button.secondary}",
                             icons::RequirementIcon { width: "19", height: "20" }
@@ -69,7 +69,7 @@ pub fn HighlightedTopic(
                         }
 
                         div {
-                            class: "flex flex-row gap-[4px] text-[14px] font-bold px-[14px] py-[8px] rounded-[8px] tooltip cursor-help",
+                            class: "flex flex-row gap-[4px] px-[14px] py-[8px] rounded-[8px] tooltip cursor-help",
                             "data-tip": "{tr.amount_tooltip}",
                             icons::Money {}
                             "{tr.amount_title} {amount} {tr.currency}"
@@ -78,7 +78,7 @@ pub fn HighlightedTopic(
                     }
                 }
 
-                div { class: "w-full flex flex-row gap-[10px] items-center justify-start",
+                div { class: "w-full flex flex-row gap-[10px] items-center justify-start max-[500px]:flex-col max-[500px]:items-start",
                     VoteResultHorizontalBars {
                         class: "grow",
                         yes,
