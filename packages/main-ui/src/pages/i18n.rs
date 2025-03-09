@@ -141,7 +141,7 @@ translate! {
     },
 
     btn_support: {
-        ko: "지지하기",
+        ko: "청원 참여",
         en: "Support",
     },
     voted: {
@@ -313,8 +313,8 @@ translate! {
     },
 
     support: {
-        ko: "지지하기",
-        en: "Support",
+        ko: "청원 참여",
+        en: "Participate",
     },
 
 }
@@ -337,12 +337,12 @@ translate! {
     },
 
     service_desc: {
-        ko: "Mine the Future, Cast Your Predictions.",
-        en: "Mine the Future, Cast Your Predictions.",
+        ko: "Cast Your Predictions.",
+        en: "Cast Your Predictions.",
     },
 
     info1: {
-        ko: "비영리임의단체 시민의목소리 (VoxPopuli) | 143-82-77608 | 대표 정상규",
+        ko: "비영리법인 시민의목소리 (VoxPopuli) | 143-82-77608 | 대표 정상규",
         en: "Non-profit organization Citizen's Voice (VoxPopuli) | 143-82-77608 | Representative Sanggyu Jeong",
     },
 

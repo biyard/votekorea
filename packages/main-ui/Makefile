@@ -11,13 +11,13 @@ DOMAIN ?= localhost
 RUST_LOG ?= debug
 KAKAO_REDIRECT_URI ?= http://localhost:8080/oauth/kakao
 WORKSPACE_ROOT ?= ../..
-MAIN_API_ENDPOINT ?= http://localhost:3000
+MAIN_API_ENDPOINT ?= https://api.votekorea.org
 
 BUILD_ENV ?= ENV=$(ENV) VERSION=$(VERSION) COMMIT=$(COMMIT) RUST_LOG=$(RUST_LOG) DOMAIN=${DOMAIN} SERVICE=$(SERVICE) MAIN_API_ENDPOINT=$(MAIN_API_ENDPOINT) KAKAO_REDIRECT_URI=$(KAKAO_REDIRECT_URI)
 
 setup.tool:
 	cargo install cargo-binstall
-	cargo binstall dioxus-cli --version 0.6.1
+	cargo binstall dioxus-cli
 	cargo binstall toml-cli
 	npm i -g tailwindcss
 
