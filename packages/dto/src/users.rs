@@ -18,7 +18,6 @@ pub struct User {
     pub updated_at: u64,
 
     #[api_model(action = signup)]
-    #[validate(custom(function = "validate_nickname"))]
     pub nickname: String,
     #[api_model(action = signup, read_action = [check_email], unique)]
     #[validate(email)]
@@ -43,15 +42,15 @@ pub enum UserRole {
     Guest = 10,
 }
 
-fn validate_nickname(nickname: &str) -> std::result::Result<(), ValidationError> {
-    lazy_static! {
-        static ref NICKNAME_REGEX: regex::Regex =
-            regex::Regex::new(r"^[a-zA-Z0-9][a-zA-Z0-9-_]{1,20}$").unwrap();
-    }
+// fn validate_nickname(nickname: &str) -> std::result::Result<(), ValidationError> {
+//     lazy_static! {
+//         static ref NICKNAME_REGEX: regex::Regex =
+//             regex::Regex::new(r"^[a-zA-Z0-9][a-zA-Z0-9-_]{1,20}$").unwrap();
+//     }
 
-    if !NICKNAME_REGEX.is_match(nickname) {
-        return Err(ValidationError::new("Nickname must be started with alphabet or number and only allow alphabet, number, hyphen and underscore, maximum 20 characters"));
-    }
+//     if !NICKNAME_REGEX.is_match(nickname) {
+//         return Err(ValidationError::new("Nickname must be started with alphabet or number and only allow alphabet, number, hyphen and underscore, maximum 20 characters"));
+//     }
 
-    Ok(())
-}
+//     Ok(())
+// }
